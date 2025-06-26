@@ -8,7 +8,25 @@ from .views import (
     CategoriaDelete, ProdutoDelete, PedidoDelete, ItensDelete, CaixaDelete, FormaPagamentoDelete
 )
 
+from django.contrib.auth import views as auth_views
+
+
 urlpatterns = [
+
+
+    path("entrar/", auth_views.LoginView.as_view(
+        template_name=  'paginasweb/form.html',
+         extra_context = {'titulo': 'entrar', 'botao': 'Cadastrar'}
+    ), name="Login"),
+
+
+        path("senha/", auth_views.PasswordChangeView.as_view(
+        template_name=  'paginasweb/form.html',
+         extra_context = {'titulo': 'Atualizar senha', 'salvar': 'Cadastrar'}
+    ), name="Login"),
+
+    path("sair/", auth_views.LogoutView.as_view(), name="logout"),
+     
     path('', IndexView.as_view(), name='index'),
     path("sobre/", SobreView.as_view(), name="sobre"),
 
