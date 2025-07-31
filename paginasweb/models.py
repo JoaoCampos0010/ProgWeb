@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=255)
@@ -11,6 +13,17 @@ class FormaPagamento(models.Model):
 
     def __str__(self):
         return self.tipo
+    
+
+
+class Gerente(models.Model):
+    nome = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=15, blank=True)
+    cpf = models.CharField(max_length=14, unique=True)
+    data_nascimento = models.DateField(null=True, blank=True)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name='gerente')
+
+    
 
 class Caixa(models.Model):
     data_abertura = models.DateTimeField(auto_now_add=True)

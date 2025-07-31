@@ -1,55 +1,35 @@
-{% load static %}
+{% extends 'paginasweb/base.html' %}
+{% block title %}Página Inicial{% endblock %}
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
+<h1 class="mb-4">Bem-vindo ao Sistema do Restaurante</h1>
 
-    {% block  titulo %}
-    <title>Página Inicial</title>
-    {% endblock  %}
-    
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-
-</head>
-<body>
-
-    <h4>Menu Superior</h4>
-  <ul>
-
-    <li>
-        <a href= "{% url "index" %}"> 
-            Inicio 
-           </a>
-
-    </li>
- <li>
-    <a href= "{% url "sobre" %}"> 
-        Sobre nós 
-       </a>
- </li>
- <li>
-  <a href="{% url "cadastrar-categoria" %}">Categoria</a>
- </li>
-
-  </ul>
-
-  {%  block conteudo  %}
-
-
-    <h3>Página inicial</h3>
-    
-    <p>Bem vindos a página inicial de Programação Web</p>
-
-
-  {% endblock  %}
-
-<p>
-
-</p>
-
-
-
-</body>
-</html>
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card border-success shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Produtos</h5>
+                <p class="display-6">{{ produto_count }}</p>
+                <a href="{% url 'cadastrar-produto' %}" class="btn btn-outline-success">Cadastrar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card border-primary shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Pedidos</h5>
+                <p class="display-6">{{ pedido_count }}</p>
+                <a href="{% url 'cadastrar-pedido' %}" class="btn btn-outline-primary">Novo Pedido</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card border-warning shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Caixa</h5>
+                <a href="{% url 'cadastrar-caixa' %}" class="btn btn-outline-warning">Abrir Caixa</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
