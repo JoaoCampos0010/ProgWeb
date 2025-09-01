@@ -31,6 +31,7 @@ class Caixa(models.Model):
     valor_inicial = models.DecimalField(decimal_places=2, max_digits=7)
     valor_final = models.DecimalField(decimal_places=2, max_digits=7)
 
+
 class Produto(models.Model):
     nome = models.CharField(max_length=255)
     preco = models.DecimalField(verbose_name="preço", max_digits=7, decimal_places=2)
@@ -40,6 +41,7 @@ class Produto(models.Model):
 
     def __str__(self):
         return self.nome
+    
 
 class Pedido(models.Model):
     data_hora = models.DateTimeField(auto_now_add=True)
@@ -47,6 +49,7 @@ class Pedido(models.Model):
     status = models.CharField(max_length=255)
     valor_total = models.DecimalField(decimal_places=2, max_digits=7)
     forma_pagamento = models.ForeignKey(FormaPagamento, on_delete=models.PROTECT)
+
 
 class Itens(models.Model):
     quantidade = models.PositiveSmallIntegerField(default=1)

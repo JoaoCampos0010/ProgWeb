@@ -18,8 +18,17 @@
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Sobre</a></li>
+                    
+                    <!-- Links de Listagem -->
+                    <li class="nav-item"><a class="nav-link" href="{% url 'listar_categoria' %}">Categorias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'listar_produto' %}">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'listar_pedido' %}">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'listar_itens' %}">Itens</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'listar_caixa' %}">Caixa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'listar_forma_pagamento' %}">Formas de Pagamento</a></li>
                 {% endif %}
             </ul>
+
             <div class="d-flex">
                 {% if user.is_authenticated %}
                     <span class="navbar-text text-white me-3">Olá, {{ user.username }}</span>
@@ -31,6 +40,7 @@
         </div>
     </div>
 </nav>
+
 
 <main class="container my-4">
     {% block content %}{% endblock %}

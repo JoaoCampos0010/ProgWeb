@@ -1,0 +1,41 @@
+{% extends 'paginasweb/base.html' %}
+{% block content %}
+
+<h2>Lista de Pedidos</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data e Hora</th>
+            <th>Cliente</th>
+            <th>Status</th>
+            <th>Valor Total</th>
+            <th>Forma de Pagamento</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in object_list %}
+        <tr>
+            <td>{{ pedido.pk }}</td>
+            <td>{{ pedido.data_hora|date:"d/m/Y H:i" }}</td>
+            <td>{{ pedido.cliente }}</td>
+            <td>{{ pedido.status }}</td>
+            <td>R$ {{ pedido.valor_total }}</td>
+            <td>{{ pedido.forma_pagamento.tipo }}</td>
+            <td>
+                <a href="{% url 'atualizar_pedido' pedido.pk %}" class="btn btn-warning btn-sm">📝</a>
+                <a href="{% url 'excluir_pedido' pedido.pk %}" class="btn btn-danger btn-sm">❌</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">Nenhum pedido cadastrado!</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+

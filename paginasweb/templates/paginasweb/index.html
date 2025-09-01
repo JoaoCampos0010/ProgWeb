@@ -5,31 +5,67 @@
 <h1 class="mb-4">Bem-vindo ao Sistema do Restaurante</h1>
 
 <div class="row">
+    <!-- Categoria -->
+    <div class="col-md-4 mb-3">
+        <div class="card border-info shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Categorias</h5>
+                <a href="{% url 'cadastrar_categoria' %}" class="btn btn-outline-info">Cadastrar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Produtos -->
     <div class="col-md-4 mb-3">
         <div class="card border-success shadow-sm">
             <div class="card-body text-center">
                 <h5 class="card-title">Produtos</h5>
                 <p class="display-6">{{ produto_count }}</p>
-                <a href="{% url 'cadastrar-produto' %}" class="btn btn-outline-success">Cadastrar</a>
+                <a href="{% url 'cadastrar_produto' %}" class="btn btn-outline-success">Cadastrar</a>
             </div>
         </div>
     </div>
+
+    <!-- Pedidos -->
     <div class="col-md-4 mb-3">
         <div class="card border-primary shadow-sm">
             <div class="card-body text-center">
                 <h5 class="card-title">Pedidos</h5>
                 <p class="display-6">{{ pedido_count }}</p>
-                <a href="{% url 'cadastrar-pedido' %}" class="btn btn-outline-primary">Novo Pedido</a>
+                <a href="{% url 'cadastrar_pedido' %}" class="btn btn-outline-primary">Novo Pedido</a>
             </div>
         </div>
     </div>
+
+    <!-- Itens -->
+    <div class="col-md-4 mb-3">
+        <div class="card border-secondary shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Itens</h5>
+                <a href="{% url 'cadastrar_itens' %}" class="btn btn-outline-secondary">Cadastrar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Caixa -->
     <div class="col-md-4 mb-3">
         <div class="card border-warning shadow-sm">
             <div class="card-body text-center">
                 <h5 class="card-title">Caixa</h5>
-                <a href="{% url 'cadastrar-caixa' %}" class="btn btn-outline-warning">Abrir Caixa</a>
+                <a href="{% url 'cadastrar_caixa' %}" class="btn btn-outline-warning">Abrir Caixa</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forma de Pagamento -->
+    <div class="col-md-4 mb-3">
+        <div class="card border-dark shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Formas de Pagamento</h5>
+                <a href="{% url 'cadastrar_forma_pagamento' %}" class="btn btn-outline-dark">Cadastrar</a>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}

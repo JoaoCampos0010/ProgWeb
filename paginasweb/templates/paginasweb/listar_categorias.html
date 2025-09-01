@@ -1,0 +1,25 @@
+{% extends 'paginasweb/base.html' %}
+{% block content %}
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Opções</th>
+    </tr>
+    {% for objeto in object_list %}
+    <tr>
+        <td>{{objeto.pk}}</td>
+        <td>{{objeto.nome}}</td>
+        <td>
+            <a href="{% url "atualizar_categoria" objeto.pk %}" class="btn btn-warning btn-sm">📝</a>
+            <a href="{% url "excluir_categoria" objeto.pk %}" class="btn btn-danger btn-sm">❌</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">Nenhuma cidade cadastrada!</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

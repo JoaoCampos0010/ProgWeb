@@ -1,7 +1,10 @@
 from django.urls import path
 from .views import (
     IndexView, SobreView,
-    CategoriaCreate, ProdutoCreate, PedidoCreate, ItensCreate, CaixaCreate, FormaPagamentoCreate
+    CategoriaCreate, ProdutoCreate, PedidoCreate, ItensCreate, CaixaCreate, FormaPagamentoCreate,
+    CategoriaUpdate, ProdutoUpdate, PedidoUpdate, ItensUpdate, CaixaUpdate, FormaPagamentoUpdate,
+    CategoriaDelete, ProdutoDelete, PedidoDelete, ItensDelete, CaixaDelete, FormaPagamentoDelete,
+    CategoriaList, ProdutoList, PedidoList, ItensList, CaixaList, FormaPagamentoList
 )
 from django.contrib.auth import views as auth_views
 
@@ -19,10 +22,36 @@ urlpatterns = [
     path('sobre/', SobreView.as_view(), name='sobre'),
 
     # Cadastro
-    path("cadastrar/categoria/", CategoriaCreate.as_view(), name="cadastrar-categoria"),
-    path("cadastrar/produto/", ProdutoCreate.as_view(), name="cadastrar-produto"),
-    path("cadastrar/pedido/", PedidoCreate.as_view(), name="cadastrar-pedido"),
-    path("cadastrar/itens/", ItensCreate.as_view(), name="cadastrar-itens"),
-    path("cadastrar/caixa/", CaixaCreate.as_view(), name="cadastrar-caixa"),
-    path("cadastrar/forma-pagamento/", FormaPagamentoCreate.as_view(), name="cadastrar-forma-pagamento"),
+    path("cadastrar/categoria/", CategoriaCreate.as_view(), name="cadastrar_categoria"),
+    path("cadastrar/produto/", ProdutoCreate.as_view(), name="cadastrar_produto"),
+    path("cadastrar/pedido/", PedidoCreate.as_view(), name="cadastrar_pedido"),
+    path("cadastrar/itens/", ItensCreate.as_view(), name="cadastrar_itens"),
+    path("cadastrar/caixa/", CaixaCreate.as_view(), name="cadastrar_caixa"),
+    path("cadastrar/forma-pagamento/", FormaPagamentoCreate.as_view(), name="cadastrar_forma_pagamento"),
+
+    # Atualização
+    path("atualizar/categoria/<int:pk>/", CategoriaUpdate.as_view(), name="atualizar_categoria"),
+    path("atualizar/produto/<int:pk>/", ProdutoUpdate.as_view(), name="atualizar_produto"),
+    path("atualizar/pedido/<int:pk>/", PedidoUpdate.as_view(), name="atualizar_pedido"),
+    path("atualizar/itens/<int:pk>/", ItensUpdate.as_view(), name="atualizar_itens"),
+    path("atualizar/caixa/<int:pk>/", CaixaUpdate.as_view(), name="atualizar_caixa"),
+    path("atualizar/forma-pagamento/<int:pk>/", FormaPagamentoUpdate.as_view(), name="atualizar_forma_pagamento"),
+
+    # Exclusão
+    path("excluir/categoria/<int:pk>/", CategoriaDelete.as_view(), name="excluir_categoria"),
+    path("excluir/produto/<int:pk>/", ProdutoDelete.as_view(), name="excluir_produto"),
+    path("excluir/pedido/<int:pk>/", PedidoDelete.as_view(), name="excluir_pedido"),
+    path("excluir/itens/<int:pk>/", ItensDelete.as_view(), name="excluir_itens"),
+    path("excluir/caixa/<int:pk>/", CaixaDelete.as_view(), name="excluir_caixa"),
+    path("excluir/forma-pagamento/<int:pk>/", FormaPagamentoDelete.as_view(), name="excluir_forma_pagamento"),
+
+    # Listagem
+    path("listar/categoria/", CategoriaList.as_view(), name="listar_categoria"),
+    path("listar/produto/", ProdutoList.as_view(), name="listar_produto"),
+    path("listar/pedido/", PedidoList.as_view(), name="listar_pedido"),
+    path("listar/itens/", ItensList.as_view(), name="listar_itens"),
+    path("listar/caixa/", CaixaList.as_view(), name="listar_caixa"),
+    path("listar/forma-pagamento/", FormaPagamentoList.as_view(), name="listar_forma_pagamento"),
+
+
 ]
