@@ -4,7 +4,7 @@ from .views import (
     CategoriaCreate, ProdutoCreate, PedidoCreate, ItensCreate, CaixaCreate, FormaPagamentoCreate,
     CategoriaUpdate, ProdutoUpdate, PedidoUpdate, ItensUpdate, CaixaUpdate, FormaPagamentoUpdate,
     CategoriaDelete, ProdutoDelete, PedidoDelete, ItensDelete, CaixaDelete, FormaPagamentoDelete,
-    CategoriaList, ProdutoList, PedidoList, ItensList, CaixaList, FormaPagamentoList
+    CategoriaList, ProdutoList, PedidoList, ItensList, CaixaList, FormaPagamentoList, EstoqueBaixoList
 )
 from django.contrib.auth import views as auth_views
 
@@ -15,7 +15,7 @@ urlpatterns = [
         extra_context={'titulo': 'Entrar', 'botao': 'Entrar'}
     ), name="Login"),
 
-    path("sair/", auth_views.LogoutView.as_view(), name="logout"),
+    path("sair/", auth_views.LogoutView.as_view(next_page="Login"), name="logout"),
 
     # Páginas principais
     path('', IndexView.as_view(), name='index'),
@@ -24,7 +24,7 @@ urlpatterns = [
     # Cadastro
     path("cadastrar/categoria/", CategoriaCreate.as_view(), name="cadastrar_categoria"),
     path("cadastrar/produto/", ProdutoCreate.as_view(), name="cadastrar_produto"),
-    path("cadastrar/pedido/", PedidoCreate.as_view(), name="cadastrar_pedido"),
+    path("finalizar/pedido/", PedidoCreate.as_view(), name="cadastrar_pedido"),
     path("cadastrar/itens/", ItensCreate.as_view(), name="cadastrar_itens"),
     path("cadastrar/caixa/", CaixaCreate.as_view(), name="cadastrar_caixa"),
     path("cadastrar/forma-pagamento/", FormaPagamentoCreate.as_view(), name="cadastrar_forma_pagamento"),
@@ -48,6 +48,7 @@ urlpatterns = [
     # Listagem
     path("listar/categoria/", CategoriaList.as_view(), name="listar_categoria"),
     path("listar/produto/", ProdutoList.as_view(), name="listar_produto"),
+    path("listar/estoque-baixo/", EstoqueBaixoList.as_view(), name="listar_estoque_baixo"),
     path("listar/pedido/", PedidoList.as_view(), name="listar_pedido"),
     path("listar/itens/", ItensList.as_view(), name="listar_itens"),
     path("listar/caixa/", CaixaList.as_view(), name="listar_caixa"),

@@ -23,8 +23,8 @@
             <td>R$ {{ caixa.valor_inicial }}</td>
             <td>R$ {{ caixa.valor_final }}</td>
             <td>
-                <a href="{% url 'atualizar_caixa' caixa.pk %} class="btn btn-warning btn-sm"">📝</a>
-                <a href="{% url 'excluir_caixa' caixa.pk %} class="btn btn-danger btn-sm"">❌</a>
+                <a href="{% url 'atualizar_caixa' caixa.pk %}" class="btn btn-warning btn-sm">📝</a>
+                <a href="{% url 'excluir_caixa' caixa.pk %}" class="btn btn-danger btn-sm">❌</a>
             </td>
         </tr>
         {% empty %}

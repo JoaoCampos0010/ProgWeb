@@ -7,9 +7,9 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Status</th>
             <th>Data e Hora</th>
             <th>Cliente</th>
-            <th>Status</th>
             <th>Valor Total</th>
             <th>Forma de Pagamento</th>
             <th>Opções</th>
@@ -19,9 +19,11 @@
         {% for pedido in object_list %}
         <tr>
             <td>{{ pedido.pk }}</td>
+            <td>
+                <small class="d-inline-block py-1 px-2 rounded border" style="background-color: {{ pedido.status.cor }};">{{ pedido.status.nome }}</small>
+            </td>
             <td>{{ pedido.data_hora|date:"d/m/Y H:i" }}</td>
             <td>{{ pedido.cliente }}</td>
-            <td>{{ pedido.status }}</td>
             <td>R$ {{ pedido.valor_total }}</td>
             <td>{{ pedido.forma_pagamento.tipo }}</td>
             <td>

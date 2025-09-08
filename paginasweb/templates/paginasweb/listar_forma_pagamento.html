@@ -10,7 +10,7 @@
     {% for objeto in object_list %}
     <tr>
         <td>{{objeto.pk}}</td>
-        <td>{{objeto.nome}}</td>
+        <td>{{objeto.tipo}}</td>
         <td>
             <a href="{% url "atualizar_forma_pagamento" objeto.pk %}" class="btn btn-warning btn-sm">📝</a>
             <a href="{% url "excluir_forma_pagamento" objeto.pk %}" class="btn btn-danger btn-sm">❌</a>

@@ -3,7 +3,7 @@
 
 <h2>Lista de Itens de Pedidos</h2>
 
-<table class="table table-striped">
+<table class="table table-striped my-3">
     <thead>
         <tr>
             <th>ID</th>
@@ -36,5 +36,17 @@
         {% endfor %}
     </tbody>
 </table>
+
+<p class="text-center my-2">
+    <a href="{% url 'cadastrar_itens' %}" class="btn btn-primary btn-lg m-1">
+        <i class="bi bi-cart-plus"></i>
+        Adicionar outro item
+    </a>
+
+    <a href="{% url 'cadastrar_pedido' %}" class="btn btn-success btn-lg m-1">
+        <i class="bi bi-cart-check"></i>
+        Finalizar Pedido
+    </a>
+</p>
 
 {% endblock %}
